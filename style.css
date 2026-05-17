@@ -1,0 +1,121 @@
+:root {
+  --base: #f7f8fa;
+  --navy: #0b1a33;
+  --gray: #6f7a89;
+  --line: #d6dce4;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--base);
+  color: var(--navy);
+  font-family: "Inter", "Noto Sans JP", system-ui, -apple-system, sans-serif;
+}
+
+.page-root {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-bottom: 6rem;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.5rem 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  color: var(--gray);
+}
+
+.hero-title {
+  margin: 1.25rem 0 0;
+  font-size: clamp(2.5rem, 12vw, 5.4rem);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.hero-lead {
+  margin: 1.9rem 0 0;
+  max-width: 38rem;
+  color: var(--gray);
+  font-size: clamp(1.1rem, 4.8vw, 1.65rem);
+  line-height: 1.8;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 1.6rem;
+  padding: 2.1rem 1.55rem;
+  box-shadow: 0 14px 36px rgba(11, 26, 51, 0.04);
+  backdrop-filter: blur(4px);
+  margin-top: 1rem;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: clamp(1.75rem, 8.2vw, 3rem);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.card p {
+  margin: 1rem 0 0;
+  color: var(--gray);
+  font-size: clamp(1.05rem, 4.5vw, 1.45rem);
+  line-height: 1.85;
+}
+
+.contact-link {
+  display: inline-block;
+  margin-top: 1.3rem;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(11, 26, 51, 0.35);
+  padding-bottom: 0.15rem;
+}
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.fade-section.is-visible {
+  animation: fadeUp 0.85s ease-out both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+  .page-root {
+    width: min(1120px, calc(100% - 96px));
+    padding-bottom: 7.5rem;
+  }
+
+  .card {
+    margin-top: 1.4rem;
+    padding: 3.1rem;
+    border-radius: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
