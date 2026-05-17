@@ -1,0 +1,136 @@
+:root {
+  --base: #f8f9fb;
+  --navy: #0b1a33;
+  --mist: #d4dae2;
+  --stone: #6f7a89;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--base);
+  color: var(--navy);
+  font-family: Inter, "Noto Sans JP", system-ui, -apple-system, sans-serif;
+}
+
+.pageRoot {
+  min-height: 100vh;
+}
+
+.heroWrap,
+.sectionList {
+  width: min(1120px, 100% - 48px);
+  margin-inline: auto;
+}
+
+.heroWrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 5.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.34em;
+  color: var(--stone);
+}
+
+.heroTitle {
+  margin: 1.2rem 0 0;
+  font-size: clamp(2.6rem, 12vw, 5.2rem);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.heroLead {
+  margin: 2rem 0 0;
+  max-width: 38rem;
+  font-size: clamp(1.12rem, 4.8vw, 1.65rem);
+  line-height: 1.75;
+  color: var(--stone);
+}
+
+.sectionList {
+  padding-bottom: 6rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.contentSection {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid color-mix(in oklab, var(--mist) 72%, white 28%);
+  border-radius: 1.65rem;
+  padding: 2.1rem 1.55rem;
+  box-shadow: 0 12px 36px rgba(11, 26, 51, 0.04);
+  backdrop-filter: blur(4px);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: clamp(1.8rem, 8.5vw, 3rem);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.sectionBody {
+  margin: 1.1rem 0 0;
+  font-size: clamp(1.06rem, 4.5vw, 1.45rem);
+  line-height: 1.85;
+  color: var(--stone);
+}
+
+.fadeSection {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.fadeSection.is-visible {
+  animation: fadeUp 0.85s ease-out both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .heroWrap,
+  .sectionList {
+    width: min(1120px, 100% - 96px);
+  }
+
+  .sectionList {
+    gap: 1.4rem;
+    padding-bottom: 7.5rem;
+  }
+
+  .contentSection {
+    padding: 3.2rem;
+    border-radius: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
